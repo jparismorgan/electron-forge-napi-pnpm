@@ -1,0 +1,49 @@
+{
+  "name": "electron",
+  "author": "Paris Morgan",
+  "version": "0.0.0",
+  "main": ".webpack/main",
+  "scripts": {
+    "dev": "electron-forge start",
+    "package": "electron-forge package",
+    "make": "electron-forge make",
+    "build": "electron-forge make",
+    "release": "electron-forge publish"
+  },
+  "dependencies": {
+    "electron-squirrel-startup": "^1.0.0",
+    "electron-store": "^8.1.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@electron-forge/cli": "^6.2.1",
+    "@electron-forge/maker-deb": "^6.2.1",
+    "@electron-forge/maker-dmg": "^6.3.0",
+    "@electron-forge/maker-rpm": "^6.2.1",
+    "@electron-forge/maker-squirrel": "^6.2.1",
+    "@electron-forge/maker-zip": "^6.2.1",
+    "@electron-forge/plugin-webpack": "^6.2.1",
+    "@electron-forge/shared-types": "^6.2.1",
+    "@timfish/forge-externals-plugin": "^0.2.1",
+    "@types/react": "^18.2.15",
+    "@types/react-dom": "^18.2.7",
+    "@typescript-eslint/eslint-plugin": "^6.1.0",
+    "@typescript-eslint/parser": "^6.1.0",
+    "@vercel/webpack-asset-relocator-loader": "1.7.3",
+    "copy-webpack-plugin": "^11.0.0",
+    "css-loader": "^6.8.1",
+    "dotenv": "^16.3.1",
+    "electron": "25.3.0",
+    "eslint": "^8.45.0",
+    "eslint-plugin-import": "^2.27.5",
+    "fork-ts-checker-webpack-plugin": "^8.0.0",
+    "node-loader": "^2.0.0",
+    "postcss-loader": "^7.3.3",
+    "style-loader": "^3.3.3",
+    "ts-loader": "^9.4.4",
+    "ts-node": "^10.9.1",
+    "typescript": "~5.1.6",
+    "webpack": "^5.88.2"
+  }
+}
