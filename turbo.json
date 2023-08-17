@@ -4,7 +4,7 @@
     "APPLE_ID",
     "APPLE_PASSWORD",
     "APPLE_TEAM_ID",
-    "DEBUG"
+    "GITHUB_TOKEN"
   ],
   "pipeline": {
     "build": {

@@ -16,9 +16,9 @@ export const mainConfig: Configuration = {
   // node: {
   //   __dirname: false
   // },
-  // externals: {
-  //   llm: 'commonjs2 llm'
-  // },
+  externals: {
+    llm: 'llm'
+  },
   resolve: {
     extensions: ['.js', '.ts', '.jsx', '.tsx', '.css', '.json']
   }
