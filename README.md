@@ -7,6 +7,7 @@ This repo is to build a simple Electron app using:
 
 ## Running Locally
 Setup:
+- brew install pnpm
 - brew install nvm
 - nvm install v18.16.0
 - nvm use v18.16.0
@@ -14,6 +15,8 @@ Setup:
 Running locally:
 - ~/repo/electron-forge-napi-pnpm pnpm i
 - ~/repo/electron-forge-napi-pnpm pnpm dev
+
+You should see this work:
 
 Packaging app:
 - ~/repo/electron-forge-napi-pnpm pnpm build

@@ -13,9 +13,6 @@ export const mainConfig: Configuration = {
   module: {
     rules
   },
-  // node: {
-  //   __dirname: false
-  // },
   externals: {
     llm: 'llm'
   },

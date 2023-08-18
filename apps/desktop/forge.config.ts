@@ -18,14 +18,14 @@ const {spawn} = require('child_process')
 const config: ForgeConfig = {
   packagerConfig: {
     asar: true,
-    // icon: './assets/icon',
-    osxSign: {},
-    osxNotarize: {
-      tool: 'notarytool',
-      appleId: process.env.APPLE_ID!,
-      appleIdPassword: process.env.APPLE_PASSWORD!,
-      teamId: process.env.APPLE_TEAM_ID!
-    }
+    // NOTE(paris): Commented out to make it easier for others to build and not have to set up a .env file. Comment back in if you also add an .env file.
+    // osxSign: {},
+    // osxNotarize: {
+    //   tool: 'notarytool',
+    //   appleId: process.env.APPLE_ID!,
+    //   appleIdPassword: process.env.APPLE_PASSWORD!,
+    //   teamId: process.env.APPLE_TEAM_ID!
+    // }
   },
   rebuildConfig: {},
   makers: [
@@ -35,7 +35,6 @@ const config: ForgeConfig = {
   plugins: [
     new WebpackPlugin({
       mainConfig,
-      // devContentSecurityPolicy: 'connect-src \'self\' data: blob: https://www.staging.hammerai.com/api/ https://www.hammerai.com/api/ https://www.models.hammerai.com/ https://images.887334743a0ced5f7b9a214e67f59d8a.r2.cloudflarestorage.com/ http://localhost:3000',
       renderer: {
         config: rendererConfig,
         entryPoints: [
@@ -50,65 +49,21 @@ const config: ForgeConfig = {
         ]
       }
     }),
-    // {
-    //   name: '@electron-forge/plugin-auto-unpack-natives',
-    //   config: {}
-    // }
-    // new AutoUnpackNativesPlugin({})
-    // new ForgeExternalsPlugin({
-    //   externals: ['llm'],
-    //   includeDeps: true
-    // })
   ],
-  // hooks: {
-  //   readPackageJson: async (forgeConfig, packageJson) => {
-  //     // only copy deps if there isn't any
-  //     if (Object.keys(packageJson.dependencies).length === 0) {
-  //       const originalPackageJson = await fs.readJson(path.resolve(__dirname, 'package.json'))
-  //       // eslint-disable-next-line global-require
-  //       const webpackConfigJs = require('./webpack.renderer.config.js')
-  //       Object.keys(webpackConfigJs.externals).forEach((package_: any) => {
-  //         packageJson.dependencies[package_] = originalPackageJson.dependencies[package_]
-  //       })
+  // NOTE(paris): Commented out to make it easier for others to build and not have to set up a .env file. Comment back in if you also add an .env file.
+  // publishers: [
+  //   {
+  //     name: '@electron-forge/publisher-github',
+  //     config: {
+  //       repository: {
+  //         owner: 'jparismorgan',
+  //         name: 'electron-forge-napi-pnpm'
+  //       },
+  //       prerelease: false,
+  //       draft: true
   //     }
-  //     return packageJson
-  //   },
-  //   packageAfterPrune: (forgeConfig, buildPath) => {
-  //     console.log(buildPath)
-  //     return new Promise((resolve, reject) => {
-  //       const npmInstall = spawn('pnpm', ['install'], {
-  //         cwd: buildPath,
-  //         stdio: 'inherit'
-  //       })
-
-  //       npmInstall.on('close', (code: any) => {
-  //         if (code === 0) {
-  //           resolve()
-  //         } else {
-  //           resolve()
-  //           // reject(new Error(`process finished with error code ${code}`))
-  //         }
-  //       })
-
-  //       npmInstall.on('error', (error: any) => {
-  //         reject(error)
-  //       })
-  //     })
   //   }
-  // },
-  publishers: [
-    {
-      name: '@electron-forge/publisher-github',
-      config: {
-        repository: {
-          owner: 'jparismorgan',
-          name: 'electron-forge-napi-pnpm'
-        },
-        prerelease: false,
-        draft: true
-      }
-    }
-  ]
+  // ]
 }
 
 export default config

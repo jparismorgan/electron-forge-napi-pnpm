@@ -8,10 +8,6 @@ export const rendererConfig: Configuration = {
   module: {
     rules
   },
-  // node: {
-  //   __dirname: false
-  // },
-  // Doesn't seem like we need this, but suggested here: https://stackoverflow.com/questions/70530563/electron-native-nodejs-module-with-webpack
   externals: {
     llm: 'llm'
   },
