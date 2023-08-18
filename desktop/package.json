@@ -4,16 +4,17 @@
   "version": "0.0.0",
   "main": ".webpack/main",
   "scripts": {
+    "native": "node-gyp rebuild",
     "dev": "electron-forge start",
     "package": "electron-forge package",
-    "build": "electron-forge make",
+    "make": "electron-forge make",
     "release": "electron-forge publish"
   },
   "dependencies": {
     "electron-squirrel-startup": "^1.0.0",
     "electron-store": "^8.1.0",
-    "llm": "file:../llm",
     "react": "^18.2.0",
+    "node-addon-api": "^7.0.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {

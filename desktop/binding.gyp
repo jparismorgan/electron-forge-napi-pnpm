@@ -5,7 +5,7 @@
       "cflags!": [ "-fno-exceptions" ],
       "cflags_cc!": [ "-fno-exceptions" ],
       "sources": [ 
-        "llm.cc", 
+        "llm/llm.cc", 
       ],
       "include_dirs": [
         "<!@(node -p \"require('node-addon-api').include\")",
