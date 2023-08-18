@@ -3,27 +3,28 @@
 This repo builds a simple Electron app using:
 - `electron-forge`: https://www.electronforge.io/
 - `node-addon-api`: https://github.com/nodejs/node-addon-api
-- `pnpm`
 
 It is used to repro a bug where when running `electron-forge make` the `node-addon-api` package cannot be found.
 
 ## Running
 Setup:
-- `brew install pnpm`
 - `brew install nvm`
 - `nvm install v18.16.0`
 - `nvm use v18.16.0`
 
 Running locally:
-- `~/repo/electron-forge-napi-pnpm pnpm i`
-- `~/repo/electron-forge-napi-pnpm pnpm dev`
+- `cd ~/repo/electron-forge-napi-pnpm/llm && npm i`
+- `cd ~/repo/electron-forge-napi-pnpm/desktop && npm i`
+- `cd ~/repo/electron-forge-napi-pnpm/desktop && npm run dev`
 
 The app should pop up and work:
 
 ![electron-forge-start](electron-forge-start.png)
 
 Packaging app:
-- `~/repo/electron-forge-napi-pnpm pnpm build`
+- `cd ~/repo/electron-forge-napi-pnpm/llm && npm i`
+- `cd ~/repo/electron-forge-napi-pnpm/desktop && npm i`
+- `cd ~/repo/electron-forge-napi-pnpm/desktop && npm run build`
 
 You should get a log like `Artifacts available at: /Users/parismorgan/repo/electron-forge-napi-pnpm/apps/desktop/out/make`:
 - Navigate to `/Users/parismorgan/repo/electron-forge-napi-pnpm/apps/desktop/out/make/zip/darwin/arm64/`
@@ -39,7 +40,7 @@ You'll then see it doesn't work:
 ```
 Uncaught Error: Cannot find module '/native_modules/llm.node'
 Require stack:
-- /Users/parismorgan/repo/electron-forge-napi-pnpm/apps/desktop/out/make/zip/darwin/arm64/electron.app/Contents/Resources/app.asar/.webpack/renderer/main_window/index.html
+- /Users/parismorgan/repo/electron-forge-napi-pnpm/desktop/out/make/zip/darwin/arm64/electron.app/Contents/Resources/app.asar/.webpack/renderer/main_window/index.html
     at Module._resolveFilename (node:internal/modules/cjs/loader:1082:15)
     at o._resolveFilename (node:electron/js2c/renderer_init:2:3879)
     at Module._load (node:internal/modules/cjs/loader:927:27)
@@ -47,7 +48,7 @@ Require stack:
     at o._load (node:electron/js2c/renderer_init:2:3109)
     at Module.require (node:internal/modules/cjs/loader:1148:19)
     at require (node:internal/modules/cjs/helpers:110:18)
-    at 268 (index.js:2:140279)
-    at t (index.js:2:141528)
-    at 310 (index.js:2:140329)
+    at 841 (index.js:2:140284)
+    at t (index.js:2:141531)
+    at 712 (index.js:2:140334)
 ```

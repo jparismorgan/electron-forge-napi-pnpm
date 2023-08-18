@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import * as ReactDOM from 'react-dom/client'
 
 // Works locally, but not with make (Cannot find module '/native_modules/llm.node')
-const LlmModule = require('../../../packages/llm')
+const LlmModule = require('../../llm')
 
 // Works locally, but not with make (fails to build).
 // import LlmModule from '../../../packages/llm'
