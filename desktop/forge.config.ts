@@ -9,7 +9,7 @@ const ForgeExternalsPlugin = require('@timfish/forge-externals-plugin')
 import {mainConfig} from './webpack.main.config'
 import {rendererConfig} from './webpack.renderer.config'
 import dotenv from 'dotenv'
-dotenv.config({path: '../../.env'})
+dotenv.config({path: '../.env'})
 
 const fs = require('fs-extra')
 const path = require('path')
@@ -17,7 +17,9 @@ const {spawn} = require('child_process')
 
 const config: ForgeConfig = {
   packagerConfig: {
-    asar: true,
+    // asar: true,
+    // Needed for signing: https://developer.apple.com/forums/thread/128380
+    asar: { unpack: '*.{node,dll}' },
     // NOTE(paris): Commented out to make it easier for others to build and not have to set up a .env file. Comment back in if you also add an .env file.
     // osxSign: {},
     // osxNotarize: {
@@ -37,6 +39,8 @@ const config: ForgeConfig = {
       mainConfig,
       renderer: {
         config: rendererConfig,
+        // Needed to be able to use node native modules when running `electron-forge make`.
+        nodeIntegration: true,
         entryPoints: [
           {
             html: './src/index.html',
